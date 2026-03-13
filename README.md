@@ -4,16 +4,31 @@
 
 Built for Source Engine community plugin and mod development. Crawl functions to collect anchors (signatures, strings, vtables, convars, etc.), serialize them, then use the pathfinder to relocate those same functions in updated binaries. Supports mid-function signature matching — not just function prologues, but specific lines deep inside a function body can be tracked and relocated across updates. Also tracks vtable offsets: if the function name contains the vtable class name before the last `_` (e.g. `CBaseEntity_Teleport`), the plugin automatically detects and updates the vtable offset across binary versions. Export directly to CounterStrikeSharp and SwiftlyS2 gamedata formats.
 
-[![GitHub Stars](https://img.shields.io/github/stars/K4ryuu/IDA-GameDataTracker?style=flat&logo=github)](https://github.com/K4ryuu/IDA-GameDataTracker)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+---
 
-## Support
+### Support My Work
 
-If you find this useful, consider sponsoring the development:
+I create free, open-source projects for the community. If you'd like to support my work, consider becoming a sponsor!
 
-[![Sponsor](https://img.shields.io/badge/Sponsor-K4ryuu-ea4aaa?style=flat&logo=githubsponsors)](https://github.com/sponsors/K4ryuu)
+#### 💖 GitHub Sponsors
 
-**Repository**: [github.com/K4ryuu/IDA-GameDataTracker](https://github.com/K4ryuu/IDA-GameDataTracker)
+Support this project through [GitHub Sponsors](https://github.com/sponsors/K4ryuu) with flexible options:
+
+- **One-time** or **monthly** contributions
+- **Custom amount** - choose what works for you
+- **Multiple tiers available** - from basic benefits to priority support or private project access
+
+Every contribution helps me dedicate more time to development, support, and creating new features. Thank you! 🙏
+
+<p align="center">
+  <a href="https://github.com/sponsors/K4ryuu">
+    <img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA" alt="GitHub Sponsors" />
+  </a>
+</p>
+
+⭐ **Or support me for free by starring this repository!**
+
+---
 
 ## Features
 
