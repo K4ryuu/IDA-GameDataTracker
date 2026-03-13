@@ -1,0 +1,158 @@
+# =============================================
+# GameDataTracker .gitignore
+# =============================================
+
+# Build outputs
+/release/
+/build/
+/obj/
+/out/
+*.so
+*.dylib
+*.dll
+*.o
+*.obj
+*.a
+*.lib
+*.exp
+*.pdb
+*.ilk
+
+# IDA SDK (too large, download separately)
+/sdk/
+
+# =============================================
+# OS & Editor
+# =============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.lnk
+
+# Linux
+*~
+.directory
+
+# Vim
+*.swp
+*.swo
+*.swn
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+tags
+[._]*.un~
+
+# Emacs
+\#*\#
+.#*
+*~
+*.elc
+
+# =============================================
+# IDEs
+# =============================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains (CLion, etc.)
+.idea/
+*.iml
+cmake-build-*/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Xcode
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+# =============================================
+# Build Tools
+# =============================================
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile.local
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+
+# Ninja
+.ninja_deps
+.ninja_log
+
+# =============================================
+# Docker
+# =============================================
+docker/*.log
+
+# =============================================
+# Project Specific
+# =============================================
+
+# GameDataTracker meta files (test data)
+*.gamedata_tracker.json
+
+# Logs and data
+*.log
+*.json
+!.serena/*.json
+
+# Personal notes
+ideas.txt
+notes.txt
+TODO.txt
+todo.txt
+
+# Local tools
+/tools/
+
+# Test binaries
+*.i64
+*.idb
+*.id0
+*.id1
+*.id2
+*.nam
+*.til
