@@ -978,7 +978,8 @@ struct action_import_gamedata_t : public action_handler_t {
             names.clear(); sig_eas.clear(); vtable_entries.clear();
             for (const auto& tf : ui::g_cache.functions) {
                 names.insert(tf.name);
-                if (tf.original_ea != BADADDR) sig_eas.insert(tf.original_ea);
+                // key on sig target, several mid-func patches can share one func
+                if (tf.original_ea != BADADDR) sig_eas.insert(tf.original_ea + tf.sig_offset);
                 if (tf.vtable_offset >= 0 && !tf.vtable_class.empty())
                     vtable_entries.insert({tf.vtable_class, tf.vtable_offset});
             }
@@ -1159,7 +1160,7 @@ struct action_import_gamedata_t : public action_handler_t {
                 continue;
             }
 
-            if (dup_cache.check(entry.name, f->start_ea)) {
+            if (dup_cache.check(entry.name, match_ea)) {
                 logger.item(is_last_sig, "%-52s  SKIP (duplicate)", entry.name.c_str());
                 skipped++;
                 continue;
@@ -1175,11 +1176,15 @@ struct action_import_gamedata_t : public action_handler_t {
                     f->start_ea, f->end_ea, match_ea, config::MID_CONTEXT_RADIUS);
             }
 
-            dup_cache.add(entry.name, f->start_ea);
+            dup_cache.add(entry.name, match_ea);
             ui::g_cache.functions.push_back(std::move(tf));
             tracked_sig++;
 
-            set_name(f->start_ea, entry.name.c_str(), SN_NOWARN | SN_FORCE);
+            // don't clobber a func already named by another tracked entry
+            qstring cur_name;
+            get_func_name(&cur_name, f->start_ea);
+            if (!dup_cache.names.count(cur_name.c_str()))
+                set_name(f->start_ea, entry.name.c_str(), SN_NOWARN | SN_FORCE);
 
             if (match_ea != f->start_ea) {
                 logger.item(is_last_sig, "%-52s  OK → 0x%llX +%d (mid-func, %zu bytes sig)",
