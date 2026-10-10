@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.0.1] - 2026-10-10
 
 ### Fixed
 - Import Gamedata skipped a mid-function signature as "duplicate" when another entry already pointed into the same function (e.g. several patches in one function). Duplicates are now keyed on the signature address.
